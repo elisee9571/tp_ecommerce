@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProductController!
+{% endblock %}
+
+{% block body %}
+	{% set category = product.category %}
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<img src="{{product.image}}" alt="">
+			</div>
+			<div class="col">
+				<h2>{{product.title}}</h2>
+				<p>{{product.content}}</p>
+				<p>{{product.price}}€</p>
+				<a class="badge alert-primary" href="{{path('app_category', {'id': category.id})}}">{{category.title}}</a>
+				<div class="mt-4">
+					<a href="{{path('app_cart_add', {'id': product.id})}}" class="btn btn-dark">Add cart</a>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
